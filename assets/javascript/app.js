@@ -24,9 +24,9 @@
         renderButtons();
     });
 
-    $("gifbutton").on("click", function() {
-        var cartoonQ = $(this).attr("data-cartoon");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoonQ + "&api_key=HC6BmMqexiKAE4svEnok7u7wH4UKB3qB";
+    $("button").on("click", function() {
+        var cartoonQuery = $(this).attr("data-cartoon");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoonQuery + "&api_key=HC6BmMqexiKAE4svEnok7u7wH4UKB3qB";
   
         $.ajax({
           url: queryURL,
