@@ -1,6 +1,6 @@
 // $(document).ready(function(){
 
-    var cartoonsArr = ["COURAGE THE COWARDLY DOG", "DARIA", "PINKY AND THE BRAIN", "SPONGEBOB", "JAKE THE DOG", "HOMER SIMPSON", "TOTALLY SPIES"];
+    var cartoonsArr = ["COURAGE THE COWARDLY DOG", "SAILOR MOON", "DARIA", "ANIMANIACS", "PINKY AND THE BRAIN", "SPONGEBOB", "JAKE THE DOG", "HOMER SIMPSON", "TOTALLY SPIES"];
 
     var renderButtons = function() {
 
@@ -45,15 +45,28 @@
             // var rating = results[i].rating;
             var p = $("<p>").text("Rating: " + results[i].rating);
   
-            var cartoonImage = $("<img>").attr("src", results[i].images.fixed_height.url);
+            var cartoonImage = $("<img>").attr("src", results[i].images.fixed_height_still.url).attr("data-state", "still").attr("data-still", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url);
   
             cartoonDiv.prepend(p);
             cartoonDiv.prepend(cartoonImage);
 
   
             $("#cartoons").prepend(cartoonDiv);
-  
+
           }
+
+          $("body").on("click", "img", function() {
+            var imageAttr = $(this).attr("data-state");
+
+            if (imageAttr === "still"){
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
+            }
+
+        });
   
         });
       });
