@@ -26,7 +26,7 @@
 
     $("body").on("click", "button", function() {
         var cartoonQuery = $(this).attr("data-cartoon");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?&limit=4&q=" + cartoonQuery + "&api_key=HC6BmMqexiKAE4svEnok7u7wH4UKB3qB";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?&limit=20&q=" + cartoonQuery + "&api_key=HC6BmMqexiKAE4svEnok7u7wH4UKB3qB";
         console.log(queryURL);
         
         $.ajax({
@@ -40,7 +40,7 @@
           var results = response.data;
   
           for (var i = 0; i < results.length; i++) {
-            var cartoonDiv = $("<div class='item'>");
+            var cartoonDiv = $("<div class='inline pull-left'>");
             
             // var rating = results[i].rating;
             var p = $("<p>").text("Rating: " + results[i].rating);
