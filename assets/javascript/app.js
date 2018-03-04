@@ -1,6 +1,6 @@
 // $(document).ready(function(){
 
-    var cartoonsArr = ["Spongebob", "Courage The Cowardly Dog", "Daria", "Pinky and the Brain"];
+    var cartoonsArr = ["COURAGE THE COWARDLY DOG", "DARIA", "PINKY AND THE BRAIN", "SPONGEBOB", "JAKE THE DOG", "HOMER SIMPSON", "TOTALLY SPIES"];
 
     var renderButtons = function() {
 
@@ -17,17 +17,18 @@
         event.preventDefault();
 
         // grav text from user and push to array
-        var userInput = $("#cartoon-input").val();
+        var userInput = $("#cartoon-input").val().toUpperCase();
 
         cartoonsArr.push(userInput);
 
         renderButtons();
     });
 
-    $("button").on("click", function() {
+    $("body").on("click", "button", function() {
         var cartoonQuery = $(this).attr("data-cartoon");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoonQuery + "&api_key=HC6BmMqexiKAE4svEnok7u7wH4UKB3qB";
-  
+        var queryURL = "https://api.giphy.com/v1/gifs/search?&limit=4&q=" + cartoonQuery + "&api_key=HC6BmMqexiKAE4svEnok7u7wH4UKB3qB";
+        console.log(queryURL);
+        
         $.ajax({
           url: queryURL,
           method: "GET"
@@ -35,7 +36,7 @@
   
           console.log(response);
   
-
+          $("#cartoons").empty();
           var results = response.data;
   
           for (var i = 0; i < results.length; i++) {
@@ -48,6 +49,7 @@
   
             cartoonDiv.prepend(p);
             cartoonDiv.prepend(cartoonImage);
+
   
             $("#cartoons").prepend(cartoonDiv);
   
