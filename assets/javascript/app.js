@@ -1,6 +1,6 @@
 // $(document).ready(function(){
 
-    var cartoonsArr = ["COURAGE THE COWARDLY DOG", "SAILOR MOON", "DARIA", "ANIMANIACS", "PINKY AND THE BRAIN", "SPONGEBOB", "JAKE THE DOG", "HOMER SIMPSON", "TOTALLY SPIES"];
+    var cartoonsArr = ["COURAGE THE COWARDLY DOG", "SAILOR MOON", "DARIA", "ANIMANIACS", "LEMONGRAB", "PINKY AND THE BRAIN", "SPONGEBOB", "JAKE THE DOG", "BEAVIS AND BUTT-HEAD", "HOMER SIMPSON", "TOTALLY SPIES"];
 
     var renderButtons = function() {
 
@@ -8,7 +8,7 @@
 
         // loops through array and generates
         for (i = 0; i < cartoonsArr.length; i++) {
-          $("#cartoon-buttons").append("<button class='gifButton' data-cartoon='" + cartoonsArr[i] + "'>" + cartoonsArr[i] + "</button>");
+          $("#cartoon-buttons").append("<button class='gifButton btn btn-default' data-cartoon='" + cartoonsArr[i] + "'>" + cartoonsArr[i] + "</button>");
         }
     }
 
@@ -40,10 +40,10 @@
           var results = response.data;
   
           for (var i = 0; i < results.length; i++) {
-            var cartoonDiv = $("<div class='inline pull-left'>");
+            var cartoonDiv = $("<div class='item pull-left'>");
             
             // var rating = results[i].rating;
-            var p = $("<p>").text("Rating: " + results[i].rating);
+            var p = $("<p>").text("rated: " + results[i].rating);
   
             var cartoonImage = $("<img>").attr("src", results[i].images.fixed_height_still.url).attr("data-state", "still").attr("data-still", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url);
   

@@ -1,4 +1,37 @@
 .item {
     display: inline;
-    margin: 0;
+    margin: 10px;
+    border: grey solid 1px;
+    border-radius: 0 0 3% 3%;
+    background:#f9f9f9;
+}
+.gifButton, #add-cartoon {
+    margin: 2px;
+    font-family: 'VT323', monospace;
+}
+
+p{
+    text-align: center;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+label{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 22px;
+}
+
+body{
+    background: linear-gradient(to right, rgba(255, 0, 85, 0.164), rgba(0, 204, 255, 0.171), rgba(251, 255, 0, 0.171), rgba(21, 255, 0, 0.301), rgba(204, 0, 255, 0.13));
+    background: cover;
+    min-height: 100%;
+}
+
+input {
+    margin: 5px;
+}
+
+.container-fluid {
+    margin-top: 10px;
 }
