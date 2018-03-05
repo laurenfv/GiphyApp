@@ -36,7 +36,7 @@ input {
     margin-top: 10px;
 }
 
-@media screen and (max-width: 640px) and (min-width: 1px) {
+@media screen and (max-width: 640px) {
    button.gifButton.btn.btn-default {
         font-size: 16px;
     }
