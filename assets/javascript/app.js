@@ -19,9 +19,14 @@ $(document).ready(function(){
         // grav text from user and push to array
         var userInput = $("#cartoon-input").val().toUpperCase();
 
-        cartoonsArr.push(userInput);
-
-        renderButtons();
+        if (cartoonsArr.indexOf(userInput) === -1){
+            cartoonsArr.push(userInput);
+            renderButtons();
+            $("#cartoon-input").val("");
+        }
+        else {
+            $("#cartoon-input").val("");
+        }
     });
 
     $("body").on("click", "button", function() {
