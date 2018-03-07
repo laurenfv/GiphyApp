@@ -39,14 +39,15 @@ $(document).ready(function(){
           $("#cartoons").empty();
           var results = response.data;
   
+          //loops through all the data returned from the query in order to display it
           for (var i = 0; i < results.length; i++) {
             var cartoonDiv = $("<div class='item pull-left'>");
             
-            // var rating = results[i].rating;
             var p = $("<p>").text("rated: " + results[i].rating);
   
             var cartoonImage = $("<img>").attr("src", results[i].images.fixed_height_still.url).attr("data-state", "still").attr("data-still", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url);
-  
+            
+            //displays data
             cartoonDiv.prepend(p);
             cartoonDiv.prepend(cartoonImage);
 
@@ -54,12 +55,11 @@ $(document).ready(function(){
             $("#cartoons").prepend(cartoonDiv);
 
           }
-
-  
         });
       });
 
-      $("body").on("click", "img", function() {
+    //changes image attribute and src when clicked in order to change still image to animated gif
+    $("body").on("click", "img", function() {
         var imageAttr = $(this).attr("data-state");
 
         if (imageAttr === "still"){
@@ -69,7 +69,6 @@ $(document).ready(function(){
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
         }
-
     });
 
       renderButtons();
