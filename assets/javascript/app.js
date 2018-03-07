@@ -1,4 +1,4 @@
-// $(document).ready(function(){
+$(document).ready(function(){
 
     var cartoonsArr = ["COURAGE THE COWARDLY DOG", "SAILOR MOON", "DARIA", "KING OF THE HILL","ANIMANIACS", "LEMONGRAB", "PINKY AND THE BRAIN", "SPONGEBOB", "JAKE THE DOG", "BEAVIS AND BUTT-HEAD", "HOMER SIMPSON", "TOTALLY SPIES"];
 
@@ -26,7 +26,7 @@
 
     $("body").on("click", "button", function() {
         var cartoonQuery = $(this).attr("data-cartoon");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?&limit=20&q=" + cartoonQuery + "&api_key=HC6BmMqexiKAE4svEnok7u7wH4UKB3qB";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?&limit=10&q=" + cartoonQuery + "&api_key=HC6BmMqexiKAE4svEnok7u7wH4UKB3qB";
         console.log(queryURL);
         
         $.ajax({
@@ -55,22 +55,23 @@
 
           }
 
-          $("body").on("click", "img", function() {
-            var imageAttr = $(this).attr("data-state");
-
-            if (imageAttr === "still"){
-                $(this).attr("src", $(this).attr("data-animate"));
-                $(this).attr("data-state", "animate");
-            } else {
-                $(this).attr("src", $(this).attr("data-still"));
-                $(this).attr("data-state", "still");
-            }
-
-        });
   
         });
       });
 
+      $("body").on("click", "img", function() {
+        var imageAttr = $(this).attr("data-state");
+
+        if (imageAttr === "still"){
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+
+    });
+
       renderButtons();
 
-// });
+});
