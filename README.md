@@ -1,7 +1,7 @@
 # GiphyApp
 > This app lets you search for gifs of your favorite cartoons.
 
-![](header.png)
+![picture](public/assets/test5.png)
 
 ## Technologies Used
 
